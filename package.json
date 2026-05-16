@@ -1,0 +1,41 @@
+{
+  "name": "mycheapflights",
+  "private": true,
+  "version": "1.0.0",
+  "description": "World-class flight search PWA – USA-Uganda Science & Tech Bootcamp",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node backend/server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0",
+    "axios": "^1.7.2",
+    "framer-motion": "^11.2.12",
+    "date-fns": "^3.6.0",
+    "react-datepicker": "^7.3.0",
+    "react-select": "^5.8.0",
+    "react-hot-toast": "^2.4.1",
+    "lucide-react": "^0.396.0",
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.4.1",
+    "nodemailer": "^6.9.13",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.1",
+    "vite-plugin-pwa": "^0.20.0",
+    "concurrently": "^8.2.2"
+  }
+}

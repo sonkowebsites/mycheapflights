@@ -1,0 +1,527 @@
+.page { padding-top: 80px; min-height: 100vh; }
+
+.searchBar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: 20px 0;
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  padding-top: 28px;
+  padding-bottom: 60px;
+  align-items: start;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 180px;
+}
+
+.sidebarInner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebarTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.closeFilters {
+  display: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-card-hover);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.filterGroup:last-of-type { border-bottom: none; }
+
+.filterLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.sortBtns, .stopsBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sortBtn, .stopBtn {
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: all 0.2s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sortBtn:hover, .stopBtn:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+}
+
+.sortBtn.active, .stopBtn.active {
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,102,255,0.1));
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.stopsBtns { flex-direction: row; }
+.stopBtn { flex: 1; text-align: center; }
+
+/* Range input */
+.rangeInput {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+  outline: none;
+  cursor: pointer;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(0,212,255,0.5);
+  cursor: pointer;
+}
+
+.rangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Airline checkboxes */
+.airlineCheckboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.checkboxLabel:hover { color: var(--text-primary); }
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-cyan);
+  cursor: pointer;
+}
+
+.resetBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-primary);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.resetBtn:hover { border-color: var(--accent-coral); color: var(--accent-coral); }
+
+/* Results */
+.results { display: flex; flex-direction: column; gap: 20px; }
+
+.resultsHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.routeTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.02em;
+}
+
+.routeArrow {
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+}
+
+.routeMeta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: capitalize;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterToggle { padding: 10px 18px !important; font-size: 0.88rem !important; }
+
+.refreshBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.refreshBtn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+.refreshBtn:disabled { opacity: 0.5; }
+
+.spinning { animation: spin-slow 1s linear infinite; }
+
+.resultsMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.priceHighlight { color: var(--accent-green); font-family: var(--font-display); }
+
+.sortBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.sortChip {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sortChip:hover { border-color: var(--border-accent); color: var(--text-primary); }
+.sortChip.active {
+  background: rgba(0,212,255,0.1);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Loading */
+.loadingWrap { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px 0; }
+
+.loadingAnim {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.loadingPlane {
+  font-size: 2rem;
+  animation: loading-fly 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0,212,255,0.6));
+}
+
+@keyframes loading-fly {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(-5deg); }
+  50% { transform: translateX(40px) translateY(-8px) rotate(5deg); }
+}
+
+.loadingTrail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), transparent);
+}
+
+.loadingText {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.loadingSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.loadingStep {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  animation: fadeInUp 0.4s var(--ease-smooth) both;
+}
+
+.skeletonList { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+.skeletonCard { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+
+.skeletonRow { display: flex; align-items: center; gap: 16px; }
+
+.skeletonRoute { display: flex; align-items: center; gap: 12px; }
+
+/* Error */
+.errorBox {
+  text-align: center;
+  padding: 40px;
+  border: 1px solid rgba(255,107,107,0.3);
+  border-radius: var(--radius-lg);
+  background: rgba(255,107,107,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+/* No results */
+.noResults {
+  text-align: center;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.noResultsIcon { font-size: 3rem; }
+.noResults h3 { font-family: var(--font-display); font-size: 1.3rem; }
+.noResults p { color: var(--text-secondary); }
+
+/* Empty */
+.emptyState {
+  text-align: center;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.emptyIcon { font-size: 4rem; animation: float 4s ease-in-out infinite; }
+.emptyState h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; }
+.emptyState p { color: var(--text-secondary); }
+
+/* Flight list */
+.flightList { display: flex; flex-direction: column; gap: 16px; }
+
+.flightItem {
+  animation: fadeInUp 0.5s var(--ease-smooth) both;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeInUp 0.2s var(--ease-smooth);
+}
+
+.modal {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-accent);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated), 0 0 60px rgba(0,212,255,0.15);
+  animation: fadeInUp 0.3s var(--ease-spring);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-primary);
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,47,255,0.08));
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.modalClose {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalClose:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+
+.modalBody { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+
+.modalFlight {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalAirline { display: flex; align-items: center; gap: 12px; }
+
+.modalAirlineName { font-family: var(--font-display); font-weight: 700; }
+.modalFlightNum { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+.modalRoute {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modalTime { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; }
+.modalCode { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+.modalRouteViz {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.modalDuration { font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); }
+.modalLine { width: 100%; height: 1.5px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); opacity: 0.4; }
+.modalStops { font-size: 0.75rem; font-weight: 700; color: var(--accent-green); font-family: var(--font-mono); }
+
+.modalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,102,255,0.06));
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.modalPriceLabel { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+.modalPriceVal { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; }
+
+.modalNote { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+
+.modalActions { display: flex; gap: 12px; flex-wrap: wrap; }
+.modalActions > * { flex: 1; justify-content: center; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: none;
+    overflow-y: auto;
+    padding: 80px 24px 40px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(24px);
+  }
+  .sidebarOpen { display: block; }
+  .closeFilters { display: flex; }
+  .sortBar { display: none; }
+}
+
+@media (max-width: 480px) {
+  .routeTitle { font-size: 1.2rem; }
+  .modal { margin: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; align-self: flex-end; }
+}

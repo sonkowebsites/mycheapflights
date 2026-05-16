@@ -1,0 +1,384 @@
+.form {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-primary);
+  overflow: visible;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.form:focus-within {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.15), var(--shadow-elevated);
+}
+
+.compact .formBody { gap: 12px; }
+
+/* Trip tabs */
+.tripTabs {
+  display: flex;
+  gap: 4px;
+  padding: 16px 20px 0;
+}
+
+.tripTab {
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.tripTab:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.tripTab.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.15));
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+/* Form body */
+.formBody {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Input label */
+.inputLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Input group */
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* Route row */
+.routeRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.airportWrap {
+  position: relative;
+  flex: 1;
+}
+
+.airportInput {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: all 0.2s var(--ease-smooth);
+  outline: none;
+}
+
+.airportInput::placeholder { color: var(--text-muted); }
+
+.airportInput:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  background: var(--bg-card);
+}
+
+/* Swap button */
+.swapBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-accent);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-spring);
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+
+.swapBtn:hover {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: white;
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  border-radius: var(--radius-md);
+  z-index: 100;
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+  animation: fadeInUp 0.2s var(--ease-smooth);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.dropdownItem:last-child { border-bottom: none; }
+
+.dropdownItem:hover { background: var(--bg-card-hover); }
+
+.airportCode {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  min-width: 36px;
+}
+
+.airportInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.airportCity {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.airportName {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.airportCountry {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Dates row */
+.datesRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dateGroup { flex: 1; }
+
+.dateInput {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: all 0.2s var(--ease-smooth);
+  cursor: pointer;
+  colorscheme: dark;
+}
+
+.dateInput:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* Bottom row */
+.bottomRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.passengersWrap {
+  position: relative;
+  flex: 1;
+}
+
+.passengersBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.passengersBtn:hover {
+  border-color: var(--border-accent);
+}
+
+.chevronUp { transform: rotate(180deg); }
+
+.passengersDropdown {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  border-radius: var(--radius-md);
+  z-index: 100;
+  padding: 16px;
+  box-shadow: var(--shadow-elevated);
+  animation: fadeInUp 0.2s var(--ease-smooth);
+}
+
+.passengerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.passengerLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.passengerSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counter button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.counter button:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.counter span {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.cabinSection { border-top: 1px solid var(--border-primary); padding-top: 14px; }
+
+.cabinBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.cabinBtn {
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cabinBtn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+.cabinBtn.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 255, 0.15));
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* Search button */
+.searchBtn {
+  flex-shrink: 0;
+  padding: 14px 28px !important;
+  font-size: 1rem !important;
+  white-space: nowrap;
+}
+
+.searchBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin-slow 0.8s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .routeRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .swapBtn { display: none; }
+  .datesRow { grid-template-columns: 1fr; }
+  .bottomRow { flex-direction: column; }
+  .passengersWrap, .searchBtn { width: 100%; }
+}

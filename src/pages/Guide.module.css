@@ -1,0 +1,321 @@
+.page { padding-top: 80px; padding-bottom: 80px; }
+
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,201,71,0.05) 0%, transparent 70%);
+}
+
+.heroTitle { margin-top: 12px; }
+.heroSub { margin: 12px auto 0; }
+
+/* Steps nav */
+.stepsNav {
+  display: flex;
+  gap: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-primary);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.stepsNav::-webkit-scrollbar { display: none; }
+
+.stepNavBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  transition: all 0.25s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.stepNavBtn:hover { color: var(--text-primary); }
+
+.stepNavBtn.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-cyan);
+}
+
+.stepNavBtn.done { color: var(--accent-green); }
+
+.stepNavNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  border: 1.5px solid currentColor;
+  color: var(--text-muted);
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+
+.stepNavBtn.active .stepNavNum {
+  background: color-mix(in srgb, var(--color) 15%, transparent);
+  border-color: var(--color);
+  color: var(--color);
+}
+
+.stepNavBtn.done .stepNavNum {
+  background: rgba(0,255,170,0.1);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.stepNavLabel { font-size: 0.82rem; }
+
+/* Step content */
+.stepContent {
+  animation: fadeInUp 0.4s var(--ease-smooth);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stepIconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--color) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+  flex-shrink: 0;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.stepSummary {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* Step body */
+.stepBody {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+
+.colTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.instructionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.instruction {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.instruction:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--border-primary);
+}
+
+.instructionDot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--color) 40%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--color);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.instructionHeading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.instructionText {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Tips */
+.tipsCol { display: flex; flex-direction: column; gap: 16px; }
+
+.tipsCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.tipsHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+}
+
+.tipsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.ctaMiniCard {
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,102,255,0.08));
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.ctaMiniTitle { font-family: var(--font-display); font-weight: 700; }
+.ctaMiniText { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* Step nav */
+.stepNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-primary);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.stepDots { display: flex; gap: 8px; }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-primary);
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+}
+
+.activeDot {
+  background: var(--accent-cyan);
+  width: 24px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,212,255,0.5);
+}
+
+button[disabled].btn-secondary { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+
+/* FAQ link */
+.faqLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+  padding: 32px;
+  border: 1px dashed var(--border-primary);
+  border-radius: var(--radius-xl);
+  flex-wrap: wrap;
+}
+
+.faqLink p { color: var(--text-secondary); }
+
+@media (max-width: 900px) {
+  .stepBody { grid-template-columns: 1fr; }
+  .tipsCard { position: static; }
+  .stepHeader { flex-direction: column; gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .stepTitle { font-size: 1.4rem; }
+  .stepsNav { gap: 0; }
+  .stepNavLabel { display: none; }
+  .stepNavBtn { padding: 12px; }
+}
